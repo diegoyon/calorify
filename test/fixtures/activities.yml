@@ -2,10 +2,10 @@
 
 one:
   calories: 1
-  burned?: false
+  burned: false
   description: MyString
 
 two:
   calories: 1
-  burned?: false
+  burned: false
   description: MyString

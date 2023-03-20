@@ -1,2 +1,7 @@
-<h1>Activities#new</h1>
-<p>Find me in app/views/activities/new.html.erb</p>
+<h1>New activity</h1>
+
+<%= render "form", activity: @activity %>
+
+<div>
+  <%= link_to "Back to activities", activities_path %>
+</div>

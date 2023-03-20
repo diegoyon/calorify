@@ -1,0 +1,27 @@
+<div>
+
+  <p>
+    <strong>ID:</strong>
+    <%= activity.id %>
+  </p>
+
+  <p>
+    <strong>Calories:</strong>
+    <%= activity.calories %>
+  </p>
+
+  <p>
+    <strong>Burned:</strong>
+    <%= activity.burned %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= activity.description %>
+  </p>
+
+  <div>
+    <%= link_to "Edit this activity", edit_activity_path(activity) %>
+    <%= button_to "Destroy this activity", activity, method: :delete %>
+  </div>
+</div>
