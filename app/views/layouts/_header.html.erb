@@ -1,12 +1,17 @@
-<header>
-  <div>
-    <% if user_signed_in? %>
-      <%= link_to 'Proyecto 3', root_path, class: "navbar-brand" %>
-      <nav>
-        <ul class="navbar-nav">
-          <li class="nav-item"><%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-light' %></li>
-        </ul>
-      </nav>
-    <% end %>
+<header class="navbar is-fixed-top is-spaced has-shadow">
+  <div class="navbar-brand">
+    <%= link_to 'Proyecto 3', root_path, class: "navbar-item" %>
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   </div>
+  <nav class="navbar-menu" id="navMenu">
+    <ul class="navbar-end">
+      <li class="navbar-item"><%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'button is-primary' %></li>
+    </ul>
+  </nav>
+
+
 </header>
