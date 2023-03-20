@@ -1,0 +1,12 @@
+<header>
+  <div>
+    <% if user_signed_in? %>
+      <%= link_to 'Proyecto 3', root_path, class: "navbar-brand" %>
+      <nav>
+        <ul class="navbar-nav">
+          <li class="nav-item"><%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-light' %></li>
+        </ul>
+      </nav>
+    <% end %>
+  </div>
+</header>
