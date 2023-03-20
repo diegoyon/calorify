@@ -1,5 +1,7 @@
 <h1>Activities</h1>
 
+<%= current_user.activity_counter %>
+
 <div>
   <% @activities.each do |activity| %>
     <%= render activity %>

@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :activities
+
+  attribute :activity_counter, default: 0
 end
