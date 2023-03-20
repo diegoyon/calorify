@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  calories: 1
+  burned?: false
+  description: MyString
+
+two:
+  calories: 1
+  burned?: false
+  description: MyString
