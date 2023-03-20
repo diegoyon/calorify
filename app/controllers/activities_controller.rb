@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: %i[ edit update destroy ]
 
   def index
-    @activities = Activity.all
+    @activities = current_user.activities.order(created_at: :desc)
   end
 
   def new
@@ -43,6 +43,6 @@ class ActivitiesController < ApplicationController
     end
 
     def activity_params
-      params.require(:activity).permit(:calories, :burned, :description)
+      params.require(:activity).permit(:calories, :burned, :description).with_defaults(user_id: current_user.id)
     end
 end
