@@ -22,6 +22,6 @@
 
   <div>
     <%= link_to "Edit this activity", edit_activity_path(activity) %>
-    <%= button_to "Destroy this activity", activity, method: :delete %>
+    <%= button_to "Destroy this activity", activity, method: :delete, data: {turbo_confirm: "Are you sure?"} %>
   </div>
 </div>
