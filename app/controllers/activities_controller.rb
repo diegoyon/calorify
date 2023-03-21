@@ -4,6 +4,8 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = current_user.activities.order(created_at: :desc).page(params[:page])
+    return unless params[:query].present?
+    @activities = @activities.where('lower(description) LIKE :query', query: "%#{params[:query].downcase}%")
   end
 
   def new

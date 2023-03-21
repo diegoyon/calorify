@@ -1,11 +1,22 @@
 <h1>Activities</h1>
 
-<%= current_user.activity_counter %>
+<%= form_with url: "/activities", method: :get, data: { controller: "actions", turbo_frame: 'activities-frame' } do |form| %>
+  <div class="container d-flex align-items-center justify-content-between">
+    <%= form.text_field :query, data: { action: 'input->actions#submit' }, class: "form-control", type: "search", placeholder: "Start typing to search..." %>
+  </div>
+<% end %>
+
+<turbo-frame id="activities-frame" target="_top">
+<div>
+  <h2>Total activities:</h2>
+  <p><%= current_user.activity_counter %></p>
+</div>
 
 <div>
   <%= render @activities %>
 </div>
-
 <%= paginate @activities %>
+</turbo-frame>
+
 
 <%= link_to "New activity", new_activity_path %>
