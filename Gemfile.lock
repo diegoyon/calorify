@@ -75,6 +75,7 @@ GEM
     builder (3.2.4)
     bulma-rails (0.9.4)
       sassc (~> 2.0)
+    cancancan (3.5.0)
     capybara (3.38.0)
       addressable
       matrix
@@ -241,6 +242,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bulma-rails
+  cancancan
   capybara
   debug
   devise
