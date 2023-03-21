@@ -46,6 +46,6 @@ class ActivitiesController < ApplicationController
     end
 
     def activity_params
-      params.require(:activity).permit(:calories, :burned, :description).with_defaults(user_id: current_user.id)
+      params.require(:activity).permit(:calories, :burned, :description, :date).with_defaults(user_id: current_user.id)
     end
 end
