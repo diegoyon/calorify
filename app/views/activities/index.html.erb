@@ -3,6 +3,8 @@
 <%= form_with url: "/activities", method: :get, data: { controller: "actions", turbo_frame: 'activities-frame' } do |form| %>
   <div class="container d-flex align-items-center justify-content-between">
     <%= form.text_field :query, data: { action: 'input->actions#submit' }, class: "form-control", type: "search", placeholder: "Start typing to search..." %>
+    <%= form.date_field :from_date, data: { action: 'input->actions#submit' } %>
+    <%= form.date_field :to_date, data: { action: 'input->actions#submit' } %>
   </div>
 <% end %>
 

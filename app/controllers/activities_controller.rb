@@ -4,8 +4,9 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = current_user.activities.order(created_at: :desc).page(params[:page])
-    return unless params[:query].present?
-    @activities = @activities.where('lower(description) LIKE :query', query: "%#{params[:query].downcase}%")
+    search_activities
+    filter_from
+    filter_to
   end
 
   def new
@@ -47,5 +48,20 @@ class ActivitiesController < ApplicationController
 
     def activity_params
       params.require(:activity).permit(:calories, :burned, :description, :date).with_defaults(user_id: current_user.id)
+    end
+
+    def search_activities
+      return unless params[:query].present?
+      @activities = @activities.where('lower(description) LIKE :query', query: "%#{params[:query].downcase}%")
+    end
+
+    def filter_from
+      return unless params[:from_date].present?
+      @activities = @activities.where("date >= ?", params[:from_date])
+    end
+
+    def filter_to
+      return unless params[:to_date].present?
+      @activities = @activities.where("date <= ?", params[:to_date])
     end
 end
