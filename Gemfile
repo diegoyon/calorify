@@ -73,4 +73,5 @@ end
 
 gem "devise"
 gem "bulma-rails"
-gem 'pg'
+gem "pg"
+gem "kaminari"

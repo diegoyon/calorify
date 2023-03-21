@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: %i[ edit update destroy ]
 
   def index
-    @activities = current_user.activities.order(created_at: :desc)
+    @activities = current_user.activities.order(created_at: :desc).page(params[:page])
   end
 
   def new

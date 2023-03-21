@@ -1,4 +1,6 @@
 class Activity < ApplicationRecord
+  paginates_per 5
+
   belongs_to :user
 
   validates :calories, presence: true

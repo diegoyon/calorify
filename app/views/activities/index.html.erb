@@ -3,9 +3,9 @@
 <%= current_user.activity_counter %>
 
 <div>
-  <% @activities.each do |activity| %>
-    <%= render activity %>
-  <% end %>
+  <%= render @activities %>
 </div>
+
+<%= paginate @activities %>
 
 <%= link_to "New activity", new_activity_path %>
