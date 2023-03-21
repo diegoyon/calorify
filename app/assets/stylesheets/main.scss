@@ -1,2 +1,13 @@
+$table-row-hover-background-color: #e2e2e2;
+
 @import '_layout';
 @import 'bulma';
+
+.navbar {
+  display: block;
+}
+
+.navbar-item {
+  display: flex;
+  align-items: center;
+}

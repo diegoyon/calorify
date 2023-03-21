@@ -1,10 +1,11 @@
-<header class="navbar is-fixed-top is-spaced has-shadow">
-  <div class="is-flex is-justify-content-space-between">
+<header class="navbar is-primary is-fixed-top has-shadow">
+  <div class="container is-flex is-justify-content-space-between">
     <%= link_to 'Proyecto 3', root_path, class: "navbar-item" %>
     <% if user_signed_in? %>
     <nav class="nav-menu">
       <ul class="navbar-end">
-        <li class="navbar-item"><%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'button is-primary' %></li>
+        <li class="navbar-item"><%= link_to "New Activity", new_activity_path %></li>
+        <li class="navbar-item"><%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'button is-primary is-inverted' %></li>
       </ul>
     </nav>
     <% end %>

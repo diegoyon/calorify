@@ -1,32 +1,24 @@
-<div>
-
-  <p>
-    <strong>ID:</strong>
-    <%= activity.id %>
-  </p>
-
-  <p>
-    <strong>Date:</strong>
+<tr>
+  <td>
     <%= activity.date.strftime("%d/%m/%Y") %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Calories:</strong>
+  <td>
     <%= activity.calories %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Burned:</strong>
+  <td>
     <%= activity.burned %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Description:</strong>
+  <td>
     <%= activity.description %>
-  </p>
+  </td>
 
-  <div>
-    <%= link_to "Edit this activity", edit_activity_path(activity) %>
-    <%= button_to "Destroy this activity", activity, method: :delete, data: {turbo_confirm: "Are you sure?"} %>
-  </div>
-</div>
+  <td>
+    <%= link_to "Edit", edit_activity_path(activity), class: "button is-warning is-small" %>
+  </td>
+  <td>
+    <%= button_to "Delete", activity, method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "button is-danger is-small" %>
+  </td>
+</tr>
