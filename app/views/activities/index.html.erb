@@ -1,33 +1,59 @@
-<h1>Activities</h1>
+<div class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Calories Consumed Today</p>
+      <p class="title"><%= Activity.where(date: Date.current, burned: false).sum(:calories) %></p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Calories Burned Today</p>
+      <p class="title"><%= Activity.where(date: Date.current, burned: true).sum(:calories) %></p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Total Activities</p>
+      <p class="title"><%= current_user.activity_counter %></p>
+    </div>
+  </div>
+</div>
 
-<%= form_with url: "/activities", method: :get, data: { controller: "actions", turbo_frame: 'activities-frame' } do |form| %>
-  <div class="container d-flex align-items-center justify-content-between">
-    <%= form.text_field :query, data: { action: 'input->actions#submit' }, class: "form-control", type: "search", placeholder: "Start typing to search..." %>
-    <%= form.date_field :from_date, data: { action: 'input->actions#submit' } %>
-    <%= form.date_field :to_date, data: { action: 'input->actions#submit' } %>
+<%= form_with url: "/activities", method: :get, data: { controller: "actions", turbo_frame: 'activities-frame' }, class: 'index-form mb-3' do |form| %>
+  <div class="field is-grouped">
+
+      <div class="control is-expanded">
+        <%= form.text_field :query, data: { action: 'input->actions#submit' }, class: "input", type: "search", placeholder: "Start typing to search..." %>
+      </div>
+
+
+      <label class="label">From:</label>
+      <div class="control">
+        <%= form.date_field :from_date, data: { action: 'input->actions#submit' }, class: "input", type: "date" %>
+      </div>
+
+      <label class="label">To:</label>
+      <div class="control">
+        <%= form.date_field :to_date, data: { action: 'input->actions#submit' }, class: "input", type: "date" %>
+      </div>
   </div>
 <% end %>
 
 <turbo-frame id="activities-frame" target="_top">
-<div>
-  <h2>Total activities:</h2>
-  <p><%= current_user.activity_counter %></p>
-</div>
-
-<table class="table is-fullwidth is-hoverable">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Calories</th>
-      <th>Burned?</th>
-      <th>Description</th>
-      <th colspan="2">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @activities %>
-  </tbody>
-</table>
-<%= paginate @activities %>
+  <table class="table is-fullwidth is-hoverable">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Calories</th>
+        <th>Burned?</th>
+        <th>Description</th>
+        <th colspan="2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @activities %>
+    </tbody>
+  </table>
+  <%= paginate @activities %>
 </turbo-frame>
 

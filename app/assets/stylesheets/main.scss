@@ -8,7 +8,21 @@ $table-row-hover-background-color: #e2e2e2;
   display: block;
 }
 
+.navbar-end {
+  display: flex;
+}
+
 .navbar-item {
   display: flex;
   align-items: center;
+}
+
+.field {
+  align-items: center;
+}
+
+.index-form {
+  .label {
+    margin-bottom: 0;
+  }
 }
