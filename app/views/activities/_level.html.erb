@@ -1,0 +1,20 @@
+<div class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Calories Consumed Today</p>
+      <p class="title"><%= Activity.where(date: Date.current, burned: false).sum(:calories) %></p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Calories Burned Today</p>
+      <p class="title"><%= Activity.where(date: Date.current, burned: true).sum(:calories) %></p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Total Activities</p>
+      <p class="title"><%= current_user.activity_counter %></p>
+    </div>
+  </div>
+</div>

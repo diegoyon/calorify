@@ -1,23 +1,4 @@
-<div class="level">
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">Calories Consumed Today</p>
-      <p class="title"><%= Activity.where(date: Date.current, burned: false).sum(:calories) %></p>
-    </div>
-  </div>
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">Calories Burned Today</p>
-      <p class="title"><%= Activity.where(date: Date.current, burned: true).sum(:calories) %></p>
-    </div>
-  </div>
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">Total Activities</p>
-      <p class="title"><%= current_user.activity_counter %></p>
-    </div>
-  </div>
-</div>
+<%= render 'activities/level' %>
 
 <%= form_with url: "/activities", method: :get, data: { controller: "actions", turbo_frame: 'activities-frame' }, class: 'index-form mb-3' do |form| %>
   <div class="field is-grouped">
@@ -45,7 +26,7 @@
       <tr>
         <th>Date</th>
         <th>Calories</th>
-        <th>Burned?</th>
+        <th><abbr title="Consumed or burned">C/B</abbr></th>
         <th>Description</th>
         <th colspan="2">Actions</th>
       </tr>

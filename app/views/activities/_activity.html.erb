@@ -8,9 +8,11 @@
   </td>
 
   <td>
-    <%= activity.burned %>
-
-    <i class="fa-solid fa-caret-up" style="color: #00c800;"></i>
+    <% if activity.burned %>
+      <i class="fa-sharp fa-solid fa-caret-up fa-2xl" style="color: #00c800;"></i>
+    <% else %>
+      <i class="fa-sharp fa-solid fa-caret-down fa-2xl" style="color: #ff0000;"></i>
+    <% end %>
   </td>
 
   <td>
