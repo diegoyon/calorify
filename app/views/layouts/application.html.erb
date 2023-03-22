@@ -13,8 +13,13 @@
   <body class="has-navbar-fixed-top">
     <%= render 'layouts/header' %>
     <div class="container is-max-widescreen mt-3">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% flash.each do |message_type, message| %>
+        <% if message_type == 'notice' %>
+          <div class="notification is-primary is-light"><%= message %></div>
+        <% else %>
+          <div class="notification is-danger is-light"><%= message %></div>
+        <% end %>
+      <% end %>
       <%= yield %>
     </div>
   </body>
