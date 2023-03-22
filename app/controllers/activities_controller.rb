@@ -3,7 +3,7 @@ class ActivitiesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @activities = current_user.activities.order(created_at: :desc).page(params[:page])
+    @activities = current_user.activities.order(date: :desc).page(params[:page])
     search_activities
     filter_from
     filter_to
