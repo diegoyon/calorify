@@ -1,0 +1,6 @@
+<h1>Chart</h1>
+
+<%= line_chart [
+  { name: 'Consumed', data: @calories_consumed },
+  { name: 'Burned', data: @calories_burned }
+], colors: ["green", "red"], title: "Calories Consumed and Burned (Last 30 days)" %>
