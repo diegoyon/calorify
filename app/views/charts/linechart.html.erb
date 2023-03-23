@@ -5,14 +5,11 @@
   { name: 'Burned', data: @calories_burned }
 ], colors: ["green", "red"], title: "Calories Consumed and Burned (Last 30 days)" %>
 
-<%= form_with(url: share_chart_path, method: :post) do |form| %>
-  <%= form.label :email, "Recipient Email" %>
-  <%= form.email_field :email %>
+<% if user_signed_in? %>
+  <%= form_with(url: share_chart_path, method: :post) do |form| %>
+    <%= form.label :email, "Share chart with" %>
+    <%= form.email_field :email %>
 
-  <%= form.label :link, "Chart Link" %>
-  <%= form.text_field :link %>
-
-  <%= form.submit "Send" %>
+    <%= form.submit "Send" %>
+  <% end %>
 <% end %>
-
-<%#= link_to 'Share this view', url_for(controller: 'charts', action: 'linechart') %>

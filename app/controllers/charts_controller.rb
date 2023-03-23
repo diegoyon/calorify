@@ -17,9 +17,9 @@ class ChartsController < ApplicationController
 
   def share_chart
     recipient = params[:email]
-    link = params[:link]
+    user = current_user
 
-    ChartMailer.share_chart(recipient, link).deliver_now
+    ChartMailer.share_chart(recipient, user).deliver_now
 
     redirect_to root_path, notice: "Email sent successfully!"
   end
