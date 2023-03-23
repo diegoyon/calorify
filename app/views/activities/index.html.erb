@@ -12,12 +12,12 @@
 
     <label class="label">From:</label>
     <div class="control">
-      <%= form.date_field :from_date, data: { action: 'input->actions#submit' }, class: "input", type: "date", max: Date.current %>
+      <%= form.date_field :from_date, data: { action: 'input->actions#submit' }, class: "input", max: Date.current %>
     </div>
 
     <label class="label">To:</label>
     <div class="control">
-      <%= form.date_field :to_date, data: { action: 'input->actions#submit' }, class: "input", type: "date", max: Date.current %>
+      <%= form.date_field :to_date, data: { action: 'input->actions#submit' }, class: "input", max: Date.current %>
     </div>
   </div>
 <% end %>

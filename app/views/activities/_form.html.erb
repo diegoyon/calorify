@@ -1,7 +1,7 @@
 <div class="columns">
 <div class="column is-half">
 
-<%= form_with model: activity, class: 'field' do |form| %>
+<%= form_with model: activity do |form| %>
   <% if activity.errors.any? %>
     <div>
       <ul>
@@ -48,7 +48,7 @@
 
   <div class="field">
     <div class="control">
-      <%= form.submit "Save", class: "button is-primary" %>
+      <%= form.submit "Save", class: "button is-link" %>
     </div>
   </div>
 <% end %>

@@ -1,15 +1,28 @@
-<h1>Chart</h1>
+<div class="is-flex is-flex-direction-column is-align-items-center">
+  <%= line_chart [
+    { name: 'Consumed', data: @calories_consumed },
+    { name: 'Burned', data: @calories_burned }
+  ],
+    colors: ["green", "red"],
+    title: "Calories Consumed and Burned (Last 30 days)",
+    width: "60vw",
+    height: "60vh"
+  %>
 
-<%= line_chart [
-  { name: 'Consumed', data: @calories_consumed },
-  { name: 'Burned', data: @calories_burned }
-], colors: ["green", "red"], title: "Calories Consumed and Burned (Last 30 days)" %>
-
-<% if user_signed_in? %>
-  <%= form_with(url: share_chart_path, method: :post) do |form| %>
-    <%= form.label :email, "Share chart with" %>
-    <%= form.email_field :email %>
-
-    <%= form.submit "Send" %>
+  <% if user_signed_in? %>
+    <%= form_with(url: share_chart_path, method: :post, class: "mt-5") do |form| %>
+          <%= form.label :email, "Share: ", class: "label" %>
+      <div class="field has-addons">
+        <div class="control has-icons-left">
+          <%= form.email_field :email, class: "input", placeholder: "Email" %>
+          <span class="icon is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </div>
+        <div class="control">
+          <%= form.submit "Send", class: "button is-link" %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
