@@ -2,4 +2,6 @@
 <% total = current_user.calorie_goal %>
 <% color = set_color(consumed, total) %>
 
-<progress class="progress <%= color %>" value="<%= consumed %>" max="<%= total%>"></progress>
+<div class="block px-5">
+  <progress class="progress <%= color %>" value="<%= consumed %>" max="<%= total%>"></progress>
+</div>
