@@ -1,22 +1,24 @@
 <%= render 'activities/level' %>
 
+<% if current_user.calorie_goal != 0 %>
+  <%= render 'activities/progress' %>
+<% end %>
+
 <%= form_with url: "/activities", method: :get, data: { controller: "actions", turbo_frame: 'activities-frame' }, class: 'index-form mb-3' do |form| %>
   <div class="field is-grouped">
+    <div class="control is-expanded">
+      <%= form.text_field :query, data: { action: 'input->actions#submit' }, class: "input", type: "search", placeholder: "Start typing to search..." %>
+    </div>
 
-      <div class="control is-expanded">
-        <%= form.text_field :query, data: { action: 'input->actions#submit' }, class: "input", type: "search", placeholder: "Start typing to search..." %>
-      </div>
+    <label class="label">From:</label>
+    <div class="control">
+      <%= form.date_field :from_date, data: { action: 'input->actions#submit' }, class: "input", type: "date", max: Date.current %>
+    </div>
 
-
-      <label class="label">From:</label>
-      <div class="control">
-        <%= form.date_field :from_date, data: { action: 'input->actions#submit' }, class: "input", type: "date", max: Date.current %>
-      </div>
-
-      <label class="label">To:</label>
-      <div class="control">
-        <%= form.date_field :to_date, data: { action: 'input->actions#submit' }, class: "input", type: "date", max: Date.current %>
-      </div>
+    <label class="label">To:</label>
+    <div class="control">
+      <%= form.date_field :to_date, data: { action: 'input->actions#submit' }, class: "input", type: "date", max: Date.current %>
+    </div>
   </div>
 <% end %>
 

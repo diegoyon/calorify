@@ -5,12 +5,23 @@
       <p class="title"><%= current_user.activities.where(date: Date.current, burned: false).sum(:calories) %></p>
     </div>
   </div>
+
+  <% if current_user.calorie_goal != 0 %>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Daily Calorie Goal</p>
+        <p class="title"><%= current_user.calorie_goal %></p>
+      </div>
+    </div>
+  <% end %>
+
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">Calories Burned Today</p>
       <p class="title"><%= current_user.activities.where(date: Date.current, burned: true).sum(:calories) %></p>
     </div>
   </div>
+
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">Total Activities</p>

@@ -2,8 +2,10 @@
 <p><%= current_user.email %></p>
 <h2>Total activities:</h2>
 <p><%= current_user.activity_counter %></p>
-<h2>Token:</h2>
-<p><%= current_user.token %></p>
+<h2>Calorie goal:</h2>
+<p><%= current_user.calorie_goal %></p>
+
+<%= link_to "Edit calorie goal", edit_user_path(current_user) %>
 
 <%= form_with(url: reset_token_path, method: :post) do |form| %>
   <%= form.submit "Reset Token" %>

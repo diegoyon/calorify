@@ -1,0 +1,22 @@
+<%= form_with(model: current_user) do |form| %>
+  <% if current_user.errors.any? %>
+    <div>
+      <h2><%= pluralize(current_user.errors.count, "error") %> prohibited this current_user from being saved:</h2>
+
+      <ul>
+        <% current_user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :calorie_goal %>
+    <%= form.number_field :calorie_goal %>
+  </div>
+
+  <div>
+    <%= form.submit "Edit goal" %>
+  </div>
+<% end %>

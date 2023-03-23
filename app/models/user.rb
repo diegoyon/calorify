@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_many :activities
 
   attribute :activity_counter, default: 0
+  attribute :calorie_goal, default: 0
+
+  validates :calorie_goal, comparison: { greater_than_or_equal_to: 0 }
 
   private
     def generate_token
