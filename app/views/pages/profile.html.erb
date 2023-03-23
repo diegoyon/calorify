@@ -1,12 +1,21 @@
-<h2>Email:</h2>
-<p><%= current_user.email %></p>
-<h2>Total activities:</h2>
-<p><%= current_user.activity_counter %></p>
-<h2>Calorie goal:</h2>
-<p><%= current_user.calorie_goal %></p>
+<h1 class="subtitle is-1">Profile</h1>
 
-<%= link_to "Edit calorie goal", edit_user_path(current_user) %>
+<p class="subtitle"><strong>Email:</strong> <%= current_user.email %></p>
 
-<%= form_with(url: reset_token_path, method: :post) do |form| %>
-  <%= form.submit "Reset Token" %>
+<p class="subtitle"><strong>Total activities:</strong> <%= current_user.activity_counter %></p>
+
+<%= turbo_frame_tag "edit_goal_frame" do %>
+  <div class="is-flex">
+    <p class="subtitle"><strong>Calorie goal:</strong> <%= current_user.calorie_goal %></p>
+
+    <%= link_to edit_user_path(current_user) do %>
+      <i class="fa-solid fa-pen-to-square ml-2 edit-button"></i>
+    <% end %>
+  </div>
+<% end %>
+
+
+<%= form_with(url: reset_token_path, method: :post, class: "mt-5") do |form| %>
+  <%= form.label "Reset token to stop sharing your calorie chart", class: "label" %>
+  <%= form.submit "Reset Token", class: "button is-warning" %>
 <% end %>

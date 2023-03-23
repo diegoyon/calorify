@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      redirect_to profile_path, notice: "Calorie goal was successfully updated."
+      redirect_to profile_path
     else
       render :edit, status: :unprocessable_entity
     end
