@@ -11,7 +11,6 @@ class User < ApplicationRecord
   attribute :activity_counter, default: 0
 
   private
-
     def generate_token
       self.token = SecureRandom.urlsafe_base64
     end

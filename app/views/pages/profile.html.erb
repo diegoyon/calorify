@@ -1,0 +1,10 @@
+<h2>Email:</h2>
+<p><%= current_user.email %></p>
+<h2>Total activities:</h2>
+<p><%= current_user.activity_counter %></p>
+<h2>Token:</h2>
+<p><%= current_user.token %></p>
+
+<%= form_with(url: reset_token_path, method: :post) do |form| %>
+  <%= form.submit "Reset Token" %>
+<% end %>

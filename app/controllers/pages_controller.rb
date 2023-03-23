@@ -1,4 +1,4 @@
-class ChartsController < ApplicationController
+class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:linechart]
   # /chart?user_id=4
   # /chart?token=8Ynxp2XAwVoO3zbVe22itQ
@@ -21,7 +21,15 @@ class ChartsController < ApplicationController
 
     ChartMailer.share_chart(recipient, user).deliver_now
 
-    redirect_to root_path, notice: "Email sent successfully!"
+    redirect_to chart_path, notice: "Email sent successfully!"
+  end
+
+  def profile
+  end
+
+  def reset_token
+    current_user.update_attribute(:token, SecureRandom.urlsafe_base64)
+    redirect_to profile_path, notice: "Token has been reset successfully!"
   end
 
   private

@@ -9,7 +9,7 @@ class Activity < ApplicationRecord
 
   attribute :burned, :boolean, default: false
 
-  after_commit :update_counter
+  after_commit :update_counter, on: [:create, :destroy]
 
   def update_counter
     user = self.user
