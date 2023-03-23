@@ -7,8 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 for i in 1..4 do #amount of users
-  random_name = "#{Faker::Name.first_name}#{i}"
-  user = User.create!(email: "#{random_name.downcase}@gmail.com", password: "#{random_name.downcase}@gmail.com")
+  user = User.create!(email: "user#{i}@gmail.com", password: "user#{i}@gmail.com")
 
   (4.months.ago.to_date..Date.current).each do |date|
     4.times do #activites per day
