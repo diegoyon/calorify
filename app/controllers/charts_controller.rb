@@ -15,6 +15,15 @@ class ChartsController < ApplicationController
     end
   end
 
+  def share_chart
+    recipient = params[:email]
+    link = params[:link]
+
+    ChartMailer.share_chart(recipient, link).deliver_now
+
+    redirect_to root_path, notice: "Email sent successfully!"
+  end
+
   private
     def set_calories(user)
       @calories_burned = user.activities.where("date >= ?", 30.days.ago.to_date).where(burned: true).group_by_day(:date).sum(:calories)
