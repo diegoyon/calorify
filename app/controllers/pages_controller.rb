@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:linechart]
+  skip_before_action :authenticate_user!, only: [:linechart, :calorie_data]
 
   def linechart
   end
