@@ -5,14 +5,14 @@
 
       <% if user_signed_in? %>
 
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarExpanded">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
     </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div id="navbarExpanded" class="navbar-menu">
       <div class="navbar-start">
         <%= link_to "Home", root_path, class: "navbar-item" %>
         <%= link_to "New Activity", new_activity_path, class: "navbar-item" %>
