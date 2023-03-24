@@ -37,6 +37,6 @@
       <%= render @activities %>
     </tbody>
   </table>
-  <%= paginate @activities %>
+  <%= paginate @activities, window: 2 %>
 </turbo-frame>
 

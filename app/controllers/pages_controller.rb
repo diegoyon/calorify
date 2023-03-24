@@ -17,6 +17,10 @@ class PagesController < ApplicationController
 
   def share_chart
     recipient = params[:email]
+    if recipient.empty?
+      redirect_to chart_path, alert: "Type an email"
+      return
+    end
     user = current_user
 
     ChartMailer.share_chart(recipient, user).deliver_now
