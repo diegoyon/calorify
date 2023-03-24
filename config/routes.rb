@@ -9,5 +9,4 @@ Rails.application.routes.draw do
   get '/profile', to: 'pages#profile'
   post '/reset_token', to: 'pages#reset_token'
   resources :users, only: [:edit, :update]
-  get '/calorie_data', to: 'pages#calorie_data'
 end

@@ -1,7 +1,17 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:linechart, :calorie_data]
+  skip_before_action :authenticate_user!, only: [:linechart]
 
   def linechart
+    if params[:token].blank?
+      set_calories(current_user)
+    else
+      user = User.find_by(token: params[:token])
+      if user == nil
+        redirect_to new_user_session_path, alert: 'Invalid URL'
+        return
+      end
+      set_calories(user)
+    end
   end
 
   def share_chart
@@ -23,23 +33,6 @@ class PagesController < ApplicationController
   def reset_token
     current_user.update_attribute(:token, SecureRandom.urlsafe_base64)
     redirect_to profile_path, notice: "Token has been reset successfully!"
-  end
-
-  def calorie_data
-    if params[:token].blank?
-      set_calories(current_user)
-    else
-      user = User.find_by(token: params[:token])
-      if user == nil
-        redirect_to new_user_session_path, alert: 'Invalid URL'
-        return
-      end
-      set_calories(user)
-    end
-    render json: [
-      { name: "Consumed", data: @calories_consumed },
-      { name: "Burned", data: @calories_burned }
-    ].chart_json
   end
 
   private
