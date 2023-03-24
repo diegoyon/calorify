@@ -1,8 +1,6 @@
 <div class="is-flex is-flex-direction-column is-align-items-center">
-  <%= line_chart [
-    { name: 'Consumed', data: @calories_consumed },
-    { name: 'Burned', data: @calories_burned }
-  ],
+
+  <%= line_chart calorie_data_path,
     colors: ["green", "red"],
     title: "Calories Consumed and Burned (Last 30 days)",
     width: "60vw",
