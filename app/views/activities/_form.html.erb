@@ -1,57 +1,57 @@
 <div class="columns">
-<div class="column is-half">
+  <div class="column is-half">
 
-<%= form_with model: activity do |form| %>
-  <% if activity.errors.any? %>
-    <div>
-      <ul>
-        <% activity.errors.each do |error| %>
-          <li class="notification is-danger is-light"><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= form_with model: activity do |form| %>
+      <% if activity.errors.any? %>
+        <div>
+          <ul>
+            <% activity.errors.each do |error| %>
+              <li class="notification is-danger is-light"><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="field">
-    <%= form.label :date, class: "label" %>
-    <div class="control">
-      <%= form.date_field :date, max: Date.current, class: "input" %>
-    </div>
-  </div>
-
-  <div class="field">
-    <%= form.label :calories, class: "label" %>
-    <div class="control">
-      <%= form.number_field :calories, class: "input" %>
-    </div>
-  </div>
-
-  <div class="field">
-    <div class="control">
-      <div class="radio">
-        <%= form.label :burned_false, "Consumed", class: "radio", for: "burned_false" %>
-        <%= form.radio_button :burned, false, id: "burned_false" %>
+      <div class="field">
+        <%= form.label :date, class: "label" %>
+        <div class="control">
+          <%= form.date_field :date, max: Date.current, class: "input" %>
+        </div>
       </div>
-      <div class="radio">
-        <%= form.label :burned_true, "Burned", class: "radio", for: "burned_true" %>
-        <%= form.radio_button :burned, true, id: "burned_true" %>
+
+      <div class="field">
+        <%= form.label :calories, class: "label" %>
+        <div class="control">
+          <%= form.number_field :calories, class: "input" %>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div class="field">
-    <%= form.label :description, class: "label" %>
-      <div class="control">
-      <%= form.text_field :description, class: "input" %>
-    </div>
-  </div>
+      <div class="field">
+        <div class="control">
+          <div class="radio">
+            <%= form.label :burned_false, "Consumed", class: "radio", for: "burned_false" %>
+            <%= form.radio_button :burned, false, id: "burned_false" %>
+          </div>
+          <div class="radio">
+            <%= form.label :burned_true, "Burned", class: "radio", for: "burned_true" %>
+            <%= form.radio_button :burned, true, id: "burned_true" %>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <div class="control">
-      <%= form.submit "Save", class: "button is-link" %>
-    </div>
-  </div>
-<% end %>
+      <div class="field">
+        <%= form.label :description, class: "label" %>
+          <div class="control">
+          <%= form.text_field :description, class: "input" %>
+        </div>
+      </div>
 
-</div>
+      <div class="field">
+        <div class="control">
+          <%= form.submit "Save", class: "button is-link" %>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
 </div>
