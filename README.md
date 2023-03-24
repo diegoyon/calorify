@@ -1,24 +1,33 @@
-# README
+## Stack
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Ruby on Rails
+- Bulma
+- PostgreSQL
 
-Things you may want to cover:
+## Live Demo
 
-* Ruby version
+[Live Demo Link](https://diego-apps.herokuapp.com/)
 
-* System dependencies
+## Diagrama de entidad-relación
 
-* Configuration
+![Diagrama de entidad-relación](/diagrama.png)
 
-* Database creation
+## Para correr el programa...
 
-* Database initialization
+Para correr el programa sigue los siguientes pasos:
 
-* How to run the test suite
+- Abre la terminal.
+- Corre `git clone git@github.com:diegoyon/proyecto3.git` para crear una copia local del repositorio.
+- Corre `bundle install` para instalar todas las dependencias.
+- Corre `rails s` para iniciar el servidor.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Autor
 
-* Deployment instructions
+👤 **Diego Yon**
 
-* ...
+- GitHub: [@diegoyon](https://github.com/diegoyon)
+- LinkedIn: [Diego Yon](https://www.linkedin.com/in/diego-yon/)
+
+## Reconocimientos
+
+- Hogaru
