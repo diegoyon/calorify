@@ -1,3 +1,7 @@
+# Calorify
+
+> Calorify es un contador de calorías online en donde los usuarios pueden registrar el número de calorías consumidas o quemadas en varios momentos del día (cada día puede tener múltiples registros). Además de esto, los usuarios podrán visualizar un resumen de su actividad de ingesta o quema de calorías diaria de manera gráfica y compartirla por correo por medio de un link.
+
 ## Stack
 
 - Ruby on Rails
