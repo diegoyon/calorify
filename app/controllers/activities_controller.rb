@@ -7,6 +7,9 @@ class ActivitiesController < ApplicationController
     search_activities
     filter_from
     filter_to
+
+    @consumed = current_user.activities.where(date: Date.current, burned: false).sum(:calories)
+    @burned = current_user.activities.where(date: Date.current, burned: true).sum(:calories)
   end
 
   def new

@@ -1,7 +1,5 @@
-<% consumed = current_user.activities.where(date: Date.current, burned: false).sum(:calories) %>
-<% total = current_user.calorie_goal %>
-<% color = set_color(consumed, total) %>
+<% color = set_color(@consumed, current_user.calorie_goal) %>
 
 <div class="block px-5">
-  <progress class="progress <%= color %>" value="<%= consumed %>" max="<%= total%>"></progress>
+  <progress class="progress <%= color %>" value="<%= @consumed %>" max="<%= current_user.calorie_goal %>"></progress>
 </div>
