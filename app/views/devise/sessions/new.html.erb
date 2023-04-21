@@ -1,32 +1,38 @@
-<div class="columns">
-  <div class="column is-one-third is-offset-one-third">
+<section class="hero is-white is-halfheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column is-4 is-offset-4">
+        <h3 class="title has-text-black">Login</h3>
+        <hr class="login-hr">
+        <p class="subtitle has-text-black">Please login to proceed.</p>
+        <div class="box">
 
-    <h2 class="subtitle is-3">Log in</h2>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="field">
+              <div class="control">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input is-large", placeholder: "Your Email" %>
+              </div>
+            </div>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :email, class: "label" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
-      </div>
+            <div class="field">
+              <div class="control">
+                <%= f.password_field :password, autocomplete: "current-password", class: "input is-large", placeholder: "Your Password" %>
+              </div>
+            </div>
 
-      <div class="field">
-        <%= f.label :password, class: "label" %>
-        <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
-      </div>
+            <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.label :remember_me, class: "checkbox" %>
+                <%= f.check_box :remember_me %>
+              </div>
+            <% end %>
 
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me, class: "checkbox" %>
+              <%= f.submit "Login", class: "button is-block is-info is-large is-fullwidth" %>
+
+          <% end %>
         </div>
-      <% end %>
-
-      <div class="actions">
-        <%= f.submit "Log in", class: "button is-info" %>
+        <%= render "devise/shared/links" %>
       </div>
-    <% end %>
-
-    <%= render "devise/shared/links" %>
-
+    </div>
   </div>
-</div>
+</section>
