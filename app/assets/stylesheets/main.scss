@@ -35,3 +35,9 @@ $table-row-hover-background-color: #e2e2e2;
 .fa-caret-up {
   color: $green;
 }
+
+.home-hero {
+  background-image: url('/assets/home-image.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}

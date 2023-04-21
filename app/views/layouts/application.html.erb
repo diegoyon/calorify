@@ -12,7 +12,7 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <div class="container is-max-widescreen mt-3">
+    <div class="container">
       <% flash.each do |message_type, message| %>
         <% if message_type == 'notice' %>
           <div class="notification is-primary is-light"><%= message %></div>
