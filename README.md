@@ -1,8 +1,8 @@
 # Calorify
 
-> Calorify es un contador de calorías online en donde los usuarios pueden registrar el número de calorías consumidas o quemadas en varios momentos del día (cada día puede tener múltiples registros). Además de esto, los usuarios podrán visualizar un resumen de su actividad de ingesta o quema de calorías diaria de manera gráfica y compartirla por correo por medio de un link.
+> Calorify is an online calorie counter where users can register the number of calories consumed or burned in a given moment of the day (each day can have multiple registries). Additionally, users can visualize a graph with their activity summary of consumed and burned calories daily and can share it by email using a customized link.
 
-## Stack
+## Built With
 
 - Ruby on Rails
 - Bulma
@@ -12,26 +12,26 @@
 
 [Live Demo Link](https://diego-apps.herokuapp.com/)
 
-## Diagrama de entidad-relación
+## ERD Diagram
 
 ![Diagrama de entidad-relación](/diagrama.png)
 
-## Para correr el programa...
+## Getting Started
 
-Para correr el programa sigue los siguientes pasos:
+To obtain a local copy of the project and test it, follow this steps:
 
-- Abre la terminal.
-- Corre `git clone git@github.com:diegoyon/proyecto3.git` para crear una copia local del repositorio.
-- Corre `bundle install` para instalar todas las dependencias.
-- Corre `rails s` para iniciar el servidor.
+- Open your console.
+- Type the following `git clone git@github.com:diegoyon/calorify.git` to create a local copy.
+- Run `bundle install` to install all required dependencies.
+- Run `rails s` to initialize the server.
 
-## Autor
+## Author
 
 👤 **Diego Yon**
 
 - GitHub: [@diegoyon](https://github.com/diegoyon)
 - LinkedIn: [Diego Yon](https://www.linkedin.com/in/diego-yon/)
 
-## Reconocimientos
+## Acknowledgments
 
 - Hogaru
