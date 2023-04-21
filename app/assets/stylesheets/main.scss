@@ -37,7 +37,15 @@ $table-row-hover-background-color: #e2e2e2;
 }
 
 .home-hero {
-  background-image: url('/assets/home-image.jpeg');
+  background-image: url('/assets/home-image.png');
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.testimonial {
+  border-radius: 5px;
+}
+
+.subtitle {
+  max-width: 25rem;
 }
