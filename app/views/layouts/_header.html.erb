@@ -1,34 +1,43 @@
 <header>
   <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <%= link_to 'calorify', root_path, class: "navbar-item logo" %>
+    <div class="container">
+      <div class="navbar-brand">
+        <%= link_to 'calorify', root_path, class: "navbar-item logo" %>
 
-      <% if user_signed_in? %>
+      
 
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarExpanded">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div id="navbarExpanded" class="navbar-menu">
-      <div class="navbar-start">
-        <%= link_to "Home", root_path, class: "navbar-item" %>
-        <%= link_to "New Activity", new_activity_path, class: "navbar-item" %>
-        <%= link_to "Chart", chart_path, class: "navbar-item" %>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarExpanded">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
       </div>
 
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <%= link_to "Profile", profile_path, class: "button is-primary" %>
-            <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'button is-primary is-inverted' %>
+      <div id="navbarExpanded" class="navbar-menu">
+        <div class="navbar-start">
+          <% if user_signed_in? %>
+            <%= link_to "Dashboard", activities_path, class: "navbar-item" %>
+            <%= link_to "New Activity", new_activity_path, class: "navbar-item" %>
+            <%= link_to "Chart", chart_path, class: "navbar-item" %>
+          <% end %>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <% if user_signed_in? %>
+                <%= link_to "Profile", profile_path, class: "button is-primary" %>
+                <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'button is-primary is-inverted' %>
+              <% else %>
+                <%= link_to "Login", new_user_session_path, class: "button is-primary" %>
+                <%= link_to "Signup", new_user_registration_path, class: "button is-primary" %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <% end %>
+    
   </nav>
 </header>
