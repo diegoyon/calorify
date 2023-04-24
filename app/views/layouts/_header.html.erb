@@ -30,7 +30,7 @@
                 <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'button is-primary is-inverted' %>
               <% else %>
                 <%= link_to "Login", new_user_session_path, class: "button is-primary" %>
-                <%= link_to "Signup", new_user_registration_path, class: "button is-primary" %>
+                <%= link_to "Signup", new_user_registration_path, class: "button is-primary is-inverted" %>
               <% end %>
             </div>
           </div>
