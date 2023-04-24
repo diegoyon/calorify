@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 ActiveRecord::Base.transaction do
-  50.times do |i|
+  5.times do |i|
     user = User.create!(email: "user#{i+1}@gmail.com", password: "user#{i+1}@gmail.com")
 
     (4.months.ago.to_date..Date.current).each do |date|
